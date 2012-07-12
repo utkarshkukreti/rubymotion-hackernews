@@ -22,8 +22,8 @@ class HomeController < UIViewController
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     simpleTableIdentifier = "SimpleTableItem"
 
-    tableView.dequeueReusableCellWithIdentifier(simpleTableIdentifier) ||
-      UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier: simpleTableIdentifier).tap do |cell|
+    (tableView.dequeueReusableCellWithIdentifier(simpleTableIdentifier) ||
+      UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier: simpleTableIdentifier)).tap do |cell|
       cell.textLabel.text = @posts[indexPath.row]["title"]
       cell.textLabel.numberOfLines = 2
       cell.textLabel.font = UIFont.fontWithName("Helvetica", size:13)
